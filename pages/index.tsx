@@ -81,7 +81,9 @@ export default function Home() {
           <form onSubmit={handleSubmit}>
             <input
               className={styles.form_input}
+              data-testid="required-input"
               type="number"
+              name="num"
               placeholder="Enter Number"
               value={input}
               required
