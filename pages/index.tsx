@@ -5,21 +5,21 @@ import styles from "@/pages/index.module.css";
 
 export default function Home() {
   //create state for form input and set to empty string
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(0);
 
   //create state to hold the roman numeral value and set to empty string
   const [result, setResult] = useState("");
 
   //function to get the form value
-  const handleOnchange = (event) => {
+  const handleOnchange = (event: React.ChangeEvent<HTMLInputElement>) => {
     //set the input state using event
-    setInput(event.target.value);
+    setInput(parseInt(event.target.value));
     //reset result state to empty string.
     setResult("");
   };
 
   //functiont to convert form input to  Roman Numeral
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     //create an object to hold roman numerals special characters
     const special_char = {
       M: 1000,
@@ -41,14 +41,20 @@ export default function Home() {
     //this variable will later contain final result
     let roman_numerals = "";
 
+    //variable to hold a copy of the input state because we dont want to modify the state directly
+    let newInputValue = input;
+
+    //set the type for key so that typeScript wont complain.
+    let key: keyof typeof special_char;
+
     //create a for in loop to loop through special_char and get the keys
-    for (let key in special_char) {
+    for (key in special_char) {
       //create a while loop to loop and compare the special_char[key] with the form input.
-      while (input >= special_char[key]) {
+      while (newInputValue >= special_char[key]) {
         //if form input is greater than current  key value, then concatinate key to the roman_numerals variable.
         roman_numerals += key;
-        //subtract the key value from form input
-        input -= special_char[key];
+        //subtract the key value from form newInput
+        newInputValue -= special_char[key];
       }
     }
 
@@ -69,6 +75,7 @@ export default function Home() {
       {/* main body start*/}
       <main>
         <h1 className={styles.title}>ROMAN NUMERAL CALCULATOR</h1>
+        <h3>Enter Number To Convert</h3>
         <div className={styles.form_container}>
           {/* from input start */}
           <form onSubmit={handleSubmit}>

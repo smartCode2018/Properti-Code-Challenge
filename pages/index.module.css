@@ -10,7 +10,6 @@
 .title {
   margin: 0;
   line-height: 1.15;
-  margin-bottom: 50px;
   font-weight: bold;
 }
 
@@ -19,6 +18,7 @@
   width: 300px;
   font-size: 30px;
   text-align: center;
+  margin-top: 50px;
   margin-bottom: 40px;
 }
 
@@ -37,6 +37,11 @@
   border-radius: 5px;
   border-color: #32a600;
   font-weight: bold;
+}
+
+.form_button:hover {
+  background-color: transparent;
+  color: black;
 }
 
 .result {

@@ -26,8 +26,8 @@
     "**/*.ts",
     "**/*.tsx",
     "types.d.ts",
-    "pages/index.jsx",
-    "pages/_app.jsx"
+    "pages/index.tsx",
+    "pages/_app.tsx"
   ],
   "exclude": ["node_modules"]
 }
