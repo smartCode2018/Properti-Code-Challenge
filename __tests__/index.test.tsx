@@ -7,7 +7,9 @@ describe("Home", () => {
     const {} = render(<Home />);
 
     const input = screen.getByTestId(/required-input/i);
+    //check if form input esxit in dom
     expect(input).toBeInTheDocument();
+    //check if form input is required
     expect(input).toBeRequired();
   });
 });
