@@ -4,7 +4,7 @@ import Head from "next/head";
 import styles from "@/pages/index.module.css";
 
 export default function Home() {
-  //create state for form input and set to empty string
+  //create state for form input and set to 0
   const [input, setInput] = useState(0);
 
   //create state to hold the roman numeral value and set to empty string
