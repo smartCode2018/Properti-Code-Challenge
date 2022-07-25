@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import Home from "@/pages/index";
 
 describe("Home", () => {
-  it("accepts a number", () => {
+  it("contains a form input, and input is required.", () => {
     const {} = render(<Home />);
 
     const input = screen.getByTestId(/required-input/i);
